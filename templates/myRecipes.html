@@ -1,0 +1,24 @@
+{% block content %}
+
+<h1> {{name}}'s recipe box </h1>
+
+<form action ='/'>
+
+  <input type="submit" value = "Search for something else">
+
+</form>
+
+{% for recipe in recipes %}
+
+<a href = "{{recipe.url}}"> {{recipe.name}} </a>
+<br>
+<img src = "{{recipe.picURL}}">
+
+<form action = '/remove/{{recipe.name}}'>
+  <input type="submit" value = "Remove from recipe box">
+</form>
+<br><br>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+{{message}}
+{% endfor %}
+
+
+
+<form action = '/seeMyRecipes'>
+  {{ form2.submit() }}
+</form>
+
+<form action ='/'>
+
+  <input type="submit" value = "Search for something else">
+
+</form>
+
+
+<h1> Results for {{search}}: </h1>
+
+{% for recipe in recipes %}
+
+<a href = "{{recipe.url}}"> {{recipe.name}} </a>
+<br>
+<img src = "{{recipe.picURL}}">
+<br><br>
+
+<form action="/save/{{recipe.name}}" method = "POST">
+
+{{form.submit()}}
+</form>
+
+<!-- couldn't you also, instead of a dynamic url, pass in name secretly? -->
+
+{% endfor %}
+
+{% endblock %}

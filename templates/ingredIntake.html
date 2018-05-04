@@ -1,0 +1,11 @@
+{% block content %}
+
+<form action = "/recipes" method = "POST">
+
+<h3> {{form.ingredient.label}} {{form.ingredient()}}</h3>
+
+{{form.submit}}
+
+</form> 
+
+{% endblock %}
